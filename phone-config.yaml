@@ -149,7 +149,7 @@ rules:
   - DOMAIN-SUFFIX,x.com,X视频
   - DOMAIN-SUFFIX,twitter.com,X视频
   - DOMAIN-SUFFIX,t.co,X视频
-  - DOMAIN-SUFFIX,grok.com,X视频
+  # grok.com 是 xAI 官网，不是 X 的视频 CDN，走 WARP 会超时，保持普通节点
 
   # xAI / X
   - DOMAIN-SUFFIX,x.ai,节点选择
