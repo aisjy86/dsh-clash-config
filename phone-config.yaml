@@ -1,0 +1,242 @@
+# mihomo / clash 手机配置（由桌面版导出）
+# 节点：15 个（按实测吞吐排序，带宽优先）
+# 适用：Clash Meta for Android / FlClash / Karing / Streisand / sing-box(需转换)
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: warning
+ipv6: false
+# 性能相关：并发建连（避免串行握手拖慢首包）
+tcp-concurrent: true
+# 只测一次延迟，不做双次采样
+unified-delay: true
+# 关闭 sniffer：它会解析并改写 TLS 目标，Play 的 Cronet 下载器对此敏感。
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "localhost.ptlogin2.qq.com"
+    # 注意：不要给 Google 域名加 fake-ip-filter。
+    # 实测这么做会让 gvt1.com 拿到被污染的国内 IP（202.101.48.97），
+    # Cronet 连上去 TLS 必定被断。保持假 IP，让节点做远端解析才是对的。
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - tls://8.8.8.8:853
+    - tls://1.1.1.1:853
+  fallback-filter:
+    geoip: false
+    ipcidr:
+      - 240.0.0.0/4
+
+proxies:
+  - { name: "ss-813 @confing_v2rayy", type: ss, server: 202.50.253.18, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-863 Join+Telegram:@Farah_VPN", type: ss, server: 202.50.253.90, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-830 Join+Telegram:@Farah_VPN", type: ss, server: 202.50.253.36, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-997 vpnsal", type: ss, server: 202.50.253.72, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-1171 IT-202.50.253.36-0221", type: ss, server: 202.50.253.36, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-854 YFZ 237 @Outline_Vpn", type: ss, server: 202.50.253.72, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-814 @vpnbaz", type: ss, server: 202.50.253.18, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-823 @confing_v2rayy", type: ss, server: 202.50.253.36, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-1142 IT-202.50.253.45-0213", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-999 All | @BigSmoke_Config", type: ss, server: 202.50.253.72, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-859 @i10VPN", type: ss, server: 202.50.253.81, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-829 YFZ 212 @Outline_Vpn", type: ss, server: 202.50.253.36, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-832 @i10VPN", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-843 Join+Telegram:@Farah_VPN", type: ss, server: 202.50.253.54, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-853 YFZ 199 @Outline_Vpn", type: ss, server: 202.50.253.72, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  # Cloudflare WARP（免费）：出口是 Cloudflare 段 104.28.x，
+  # 与节点池的 GTHost 段完全不同，专门用来承载 X 相关流量试视频风控。
+  # 注意：WARP 在墙内到 Google/YouTube 不通，只能给 X 用，不要全局套。
+  - name: WARP
+    type: wireguard
+    server: engage.cloudflareclient.com
+    port: 2408
+    ip: 172.16.0.2
+    private-key: qAfbhF4NBDEy9yCOw4RWkynMxrWDU/wXo8EoM2HNckE=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    udp: true
+    mtu: 1280
+    reserved: [216,32,238]
+
+proxy-groups:
+  # X 专用出口：默认 WARP，可手动切回普通节点
+  - name: X视频
+    type: select
+    proxies:
+      - WARP
+      - 自动选择
+      - 节点选择
+
+  - name: 节点选择
+    type: select
+    proxies:
+      - 自动选择
+      - "ss-813 @confing_v2rayy"
+      - "ss-863 Join+Telegram:@Farah_VPN"
+      - "ss-830 Join+Telegram:@Farah_VPN"
+      - "ss-997 vpnsal"
+      - "ss-1171 IT-202.50.253.36-0221"
+      - "ss-854 YFZ 237 @Outline_Vpn"
+      - "ss-814 @vpnbaz"
+      - "ss-823 @confing_v2rayy"
+      - "ss-1142 IT-202.50.253.45-0213"
+      - "ss-999 All | @BigSmoke_Config"
+      - "ss-859 @i10VPN"
+      - "ss-829 YFZ 212 @Outline_Vpn"
+      - "ss-832 @i10VPN"
+      - "ss-843 Join+Telegram:@Farah_VPN"
+      - "ss-853 YFZ 199 @Outline_Vpn"
+
+  # 下载专用：负载均衡组。Play 下载是多分片并发，单节点容易被限速或直接断，
+  # 分散到多个节点能显著提高成功率与总吞吐。
+  - name: 下载加速
+    type: load-balance
+    strategy: round-robin
+    proxies:
+      - "ss-813 @confing_v2rayy"
+      - "ss-863 Join+Telegram:@Farah_VPN"
+      - "ss-830 Join+Telegram:@Farah_VPN"
+      - "ss-997 vpnsal"
+      - "ss-1171 IT-202.50.253.36-0221"
+      - "ss-854 YFZ 237 @Outline_Vpn"
+      - "ss-814 @vpnbaz"
+      - "ss-823 @confing_v2rayy"
+      - "ss-1142 IT-202.50.253.45-0213"
+      - "ss-999 All | @BigSmoke_Config"
+      - "ss-859 @i10VPN"
+      - "ss-829 YFZ 212 @Outline_Vpn"
+      - "ss-832 @i10VPN"
+      - "ss-843 Join+Telegram:@Farah_VPN"
+      - "ss-853 YFZ 199 @Outline_Vpn"
+    url: "https://www.gstatic.com/generate_204"
+    interval: 600
+    tolerance: 100
+    lazy: true
+
+  - name: 自动选择
+    type: url-test
+    proxies:
+      - "ss-813 @confing_v2rayy"
+      - "ss-863 Join+Telegram:@Farah_VPN"
+      - "ss-830 Join+Telegram:@Farah_VPN"
+      - "ss-997 vpnsal"
+      - "ss-1171 IT-202.50.253.36-0221"
+      - "ss-854 YFZ 237 @Outline_Vpn"
+      - "ss-814 @vpnbaz"
+      - "ss-823 @confing_v2rayy"
+      - "ss-1142 IT-202.50.253.45-0213"
+      - "ss-999 All | @BigSmoke_Config"
+      - "ss-859 @i10VPN"
+      - "ss-829 YFZ 212 @Outline_Vpn"
+      - "ss-832 @i10VPN"
+      - "ss-843 Join+Telegram:@Farah_VPN"
+      - "ss-853 YFZ 199 @Outline_Vpn"
+    url: "https://www.gstatic.com/generate_204"
+    interval: 1800
+    tolerance: 200
+    lazy: true
+
+rules:
+  # ===== X / Twitter 走 WARP =====
+  - DOMAIN-SUFFIX,twimg.com,X视频
+  - DOMAIN-SUFFIX,x.com,X视频
+  - DOMAIN-SUFFIX,twitter.com,X视频
+  - DOMAIN-SUFFIX,t.co,X视频
+  - DOMAIN-SUFFIX,grok.com,X视频
+
+  # xAI / X
+  - DOMAIN-SUFFIX,x.ai,节点选择
+  - DOMAIN-SUFFIX,x.com,节点选择
+  - DOMAIN-SUFFIX,twimg.com,节点选择
+  - DOMAIN-SUFFIX,twitter.com,节点选择
+  - DOMAIN-SUFFIX,grok.com,节点选择
+  # ===== Google Play 专项（国行设备）=====
+  # 国行 Play 用 services.googleapis.cn（不是 .com），会被后面的
+  # DOMAIN-SUFFIX,cn,DIRECT 抓住直连，导致商店服务连不上 →"一直转圈/等待中"。
+  # 这条必须放在 cn 直连规则之前。
+  - DOMAIN-SUFFIX,services.googleapis.cn,节点选择
+
+  # Play 下载走 Google 在国内的 CDN（北京 2x3 / 上海 ni5 / 广州 j5o），
+  # 域名形如 rr4---sn-j5o7dn7s.xn--ngstr-lra8j.com（ångström 的 Punycode）。
+  # 这些节点本来就在国内，走代理绕到国外再回来必定超时 —— 必须直连。
+  - DOMAIN-REGEX,^r+[0-9]+(---|\.)sn-(2x3|ni5|j5o)\w{5}\.xn--ngstr-lra8j\.com$,DIRECT
+
+  # 上游 v2fly/domain-list-community data/google-play 里标记 @cn 的两条，我们之前漏了
+  - DOMAIN,redirector.c.play.google.com,DIRECT
+  - DOMAIN,redirector.xn--ngstr-lra8j.com,DIRECT
+
+  # Play 商店的图片/资源域名（图标、截图），走代理即可
+  - DOMAIN-SUFFIX,googleplay.com,节点选择
+  - DOMAIN,play-fe.googleapis.com,节点选择
+  - DOMAIN,play-lh.googleusercontent.com,节点选择
+
+  # 其余 ångström CDN（海外节点）走代理
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,节点选择
+
+  # Play 下载链路：和 PC 端保持一致（PC 实测能下、手机之前也能下）
+  # 关键教训：dl.google.com / gvt1.com 解析到 Google 国内 CDN（180.163.x），
+  # 必须直连。之前这里写成"下载加速"（15 节点轮询代理），等于把国内 CDN
+  # 绕到国外再回来，任何一个节点死掉分片就卡在"等待中"。
+  - DOMAIN,dl.google.com,DIRECT
+  - DOMAIN-SUFFIX,gvt1.com,DIRECT
+  # 真正需要出国的 Play API 走单一节点（不要用 load-balance 轮询，
+  # 分片分散到不同节点反而更容易卡住）
+  - DOMAIN,play.googleapis.com,节点选择
+  - DOMAIN,android.clients.google.com,节点选择
+  - DOMAIN-SUFFIX,googleusercontent.com,节点选择
+
+  # Google / YouTube
+  - DOMAIN-SUFFIX,google.com,节点选择
+  - DOMAIN-SUFFIX,googleapis.com,节点选择
+  - DOMAIN-SUFFIX,googleusercontent.com,节点选择
+  - DOMAIN-SUFFIX,gstatic.com,节点选择
+  - DOMAIN-SUFFIX,googlevideo.com,节点选择
+  - DOMAIN-SUFFIX,ytimg.com,节点选择
+  - DOMAIN-SUFFIX,youtube.com,节点选择
+  - DOMAIN-SUFFIX,youtu.be,节点选择
+  - DOMAIN-SUFFIX,youtube-nocookie.com,节点选择
+  - DOMAIN-SUFFIX,ggpht.com,节点选择
+  # Meta
+  - DOMAIN-SUFFIX,facebook.com,节点选择
+  - DOMAIN-SUFFIX,fb.com,节点选择
+  - DOMAIN-SUFFIX,fb.me,节点选择
+  - DOMAIN-SUFFIX,fbcdn.net,节点选择
+  - DOMAIN-SUFFIX,fbsbx.com,节点选择
+  - DOMAIN-SUFFIX,messenger.com,节点选择
+  - DOMAIN-SUFFIX,instagram.com,节点选择
+  - DOMAIN-SUFFIX,cdninstagram.com,节点选择
+  - DOMAIN-SUFFIX,whatsapp.com,节点选择
+  - DOMAIN-SUFFIX,whatsapp.net,节点选择
+  # 其他
+  - DOMAIN-SUFFIX,openai.com,节点选择
+  - DOMAIN-SUFFIX,openrouter.ai,节点选择
+  - DOMAIN-SUFFIX,github.com,节点选择
+  - DOMAIN-SUFFIX,githubusercontent.com,节点选择
+  - DOMAIN-SUFFIX,wikipedia.org,节点选择
+  - DOMAIN-SUFFIX,telegram.org,节点选择
+  - DOMAIN-SUFFIX,t.me,节点选择
+  - DOMAIN-SUFFIX,discord.com,节点选择
+  - DOMAIN-SUFFIX,reddit.com,节点选择
+  - DOMAIN-SUFFIX,netflix.com,节点选择
+  # 国内直连
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,alicdn.com,DIRECT
+  - DOMAIN-SUFFIX,jd.com,DIRECT
+  - DOMAIN-SUFFIX,bilibili.com,DIRECT
+  - DOMAIN-SUFFIX,zhihu.com,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - MATCH,节点选择
