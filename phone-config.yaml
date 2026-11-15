@@ -227,15 +227,134 @@ rules:
   - DOMAIN-SUFFIX,discord.com,节点选择
   - DOMAIN-SUFFIX,reddit.com,节点选择
   - DOMAIN-SUFFIX,netflix.com,节点选择
-  # 国内直连
+  # ===== 国内直连 =====
+  # 判据：这些站点都部署在国内，走代理反而更慢且浪费节点流量。
+  # 教训：兜底规则是 MATCH,节点选择，所以没列出的国内站会被送进代理
+  # （www.doubao.com 之前就是这样被代理的）。
+  # 顶级后缀：一次覆盖大量国内站点
   - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-SUFFIX,com.cn,DIRECT
+  - DOMAIN-SUFFIX,net.cn,DIRECT
+  - DOMAIN-SUFFIX,org.cn,DIRECT
+  - DOMAIN-SUFFIX,gov.cn,DIRECT
+  - DOMAIN-SUFFIX,edu.cn,DIRECT
+  - DOMAIN-SUFFIX,ac.cn,DIRECT
+  # 字节 / 豆包 / Coze（来源 v2fly domain-list-community: data/doubao）
+  - DOMAIN-SUFFIX,doubao.com,DIRECT
+  - DOMAIN-SUFFIX,doubaoapps.com,DIRECT
+  - DOMAIN-SUFFIX,doubaocdn.com,DIRECT
+  - DOMAIN-SUFFIX,doubao-dev.com,DIRECT
+  - DOMAIN-SUFFIX,butterflyai.cn,DIRECT
+  - DOMAIN-SUFFIX,butterfly-static.cn,DIRECT
+  - DOMAIN-SUFFIX,coze.cn,DIRECT
+  - DOMAIN-SUFFIX,cozedeploy.com,DIRECT
+  - DOMAIN-SUFFIX,cozecdn.com,DIRECT
+  - DOMAIN-SUFFIX,cozefn.cn,DIRECT
+  - DOMAIN-SUFFIX,cozesdk.com,DIRECT
+  - DOMAIN-SUFFIX,cozebaas.cn,DIRECT
+  - DOMAIN-SUFFIX,cozebuild.com,DIRECT
+  - DOMAIN-SUFFIX,coze.email,DIRECT
+  - DOMAIN-SUFFIX,coze.site,DIRECT
+  - DOMAIN-SUFFIX,cozeapp.net,DIRECT
+  - DOMAIN-SUFFIX,cozetest.cn,DIRECT
+  - DOMAIN-SUFFIX,coze-dns-01.com,DIRECT
+  - DOMAIN-SUFFIX,building.fun,DIRECT
+  - DOMAIN-SUFFIX,dbbuilding.fun,DIRECT
+  - DOMAIN-SUFFIX,instreet.com,DIRECT
+  - DOMAIN-SUFFIX,maoxiangai.com,DIRECT
+  - DOMAIN-SUFFIX,myparallelstory.com,DIRECT
+  - DOMAIN-SUFFIX,oceancloudapi.com,DIRECT
+  - DOMAIN-SUFFIX,obriccloud.com,DIRECT
+  - DOMAIN-SUFFIX,obricclouddw.com,DIRECT
+  - DOMAIN-SUFFIX,picpic-ai.cn,DIRECT
+  - DOMAIN-SUFFIX,pixeldance.com,DIRECT
+  - DOMAIN-SUFFIX,hi-butterfly.cn,DIRECT
+  # 字节其它产品线
+  - DOMAIN-SUFFIX,byteimg.com,DIRECT
+  - DOMAIN-SUFFIX,bytedance.com,DIRECT
+  - DOMAIN-SUFFIX,bytedance.net,DIRECT
+  - DOMAIN-SUFFIX,volcengine.com,DIRECT
+  - DOMAIN-SUFFIX,volccdn.com,DIRECT
+  - DOMAIN-SUFFIX,douyin.com,DIRECT
+  - DOMAIN-SUFFIX,douyinpic.com,DIRECT
+  - DOMAIN-SUFFIX,douyincdn.com,DIRECT
+  - DOMAIN-SUFFIX,snssdk.com,DIRECT
+  - DOMAIN-SUFFIX,pstatp.com,DIRECT
+  - DOMAIN-SUFFIX,ixigua.com,DIRECT
+  - DOMAIN-SUFFIX,feishu.cn,DIRECT
+  - DOMAIN-SUFFIX,larksuite.com,DIRECT
+  - DOMAIN-SUFFIX,juejin.cn,DIRECT
+  - DOMAIN-SUFFIX,fqnovel.com,DIRECT
+  # 大厂主力站
   - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - DOMAIN-SUFFIX,bdstatic.com,DIRECT
+  - DOMAIN-SUFFIX,bdimg.com,DIRECT
   - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,gtimg.com,DIRECT
+  - DOMAIN-SUFFIX,qpic.cn,DIRECT
+  - DOMAIN-SUFFIX,tencent.com,DIRECT
+  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wechat.com,DIRECT
   - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,tmall.com,DIRECT
   - DOMAIN-SUFFIX,alicdn.com,DIRECT
+  - DOMAIN-SUFFIX,aliyun.com,DIRECT
+  - DOMAIN-SUFFIX,alipay.com,DIRECT
+  - DOMAIN-SUFFIX,alipayobjects.com,DIRECT
   - DOMAIN-SUFFIX,jd.com,DIRECT
+  - DOMAIN-SUFFIX,360buyimg.com,DIRECT
+  - DOMAIN-SUFFIX,pinduoduo.com,DIRECT
+  - DOMAIN-SUFFIX,yangkeduo.com,DIRECT
+  - DOMAIN-SUFFIX,meituan.com,DIRECT
+  - DOMAIN-SUFFIX,meituan.net,DIRECT
+  - DOMAIN-SUFFIX,dianping.com,DIRECT
+  - DOMAIN-SUFFIX,ele.me,DIRECT
+  - DOMAIN-SUFFIX,xiaojukeji.com,DIRECT
+  - DOMAIN-SUFFIX,amap.com,DIRECT
+  - DOMAIN-SUFFIX,autonavi.com,DIRECT
+  - DOMAIN-SUFFIX,12306.cn,DIRECT
+  - DOMAIN-SUFFIX,ctrip.com,DIRECT
+  - DOMAIN-SUFFIX,qunar.com,DIRECT
+  # 内容 / 社交 / 视频
   - DOMAIN-SUFFIX,bilibili.com,DIRECT
+  - DOMAIN-SUFFIX,bilivideo.com,DIRECT
+  - DOMAIN-SUFFIX,hdslb.com,DIRECT
   - DOMAIN-SUFFIX,zhihu.com,DIRECT
+  - DOMAIN-SUFFIX,zhimg.com,DIRECT
+  - DOMAIN-SUFFIX,weibo.com,DIRECT
+  - DOMAIN-SUFFIX,weibo.cn,DIRECT
+  - DOMAIN-SUFFIX,sina.com.cn,DIRECT
+  - DOMAIN-SUFFIX,sinaimg.cn,DIRECT
+  - DOMAIN-SUFFIX,163.com,DIRECT
+  - DOMAIN-SUFFIX,126.net,DIRECT
+  - DOMAIN-SUFFIX,126.com,DIRECT
+  - DOMAIN-SUFFIX,netease.com,DIRECT
+  - DOMAIN-SUFFIX,kuaishou.com,DIRECT
+  - DOMAIN-SUFFIX,gifshow.com,DIRECT
+  - DOMAIN-SUFFIX,xiaohongshu.com,DIRECT
+  - DOMAIN-SUFFIX,xhscdn.com,DIRECT
+  - DOMAIN-SUFFIX,douban.com,DIRECT
+  - DOMAIN-SUFFIX,huya.com,DIRECT
+  - DOMAIN-SUFFIX,douyu.com,DIRECT
+  - DOMAIN-SUFFIX,iqiyi.com,DIRECT
+  - DOMAIN-SUFFIX,youku.com,DIRECT
+  - DOMAIN-SUFFIX,mgtv.com,DIRECT
+  - DOMAIN-SUFFIX,kugou.com,DIRECT
+  - DOMAIN-SUFFIX,ximalaya.com,DIRECT
+  - DOMAIN-SUFFIX,csdn.net,DIRECT
+  - DOMAIN-SUFFIX,cnblogs.com,DIRECT
+  - DOMAIN-SUFFIX,jianshu.com,DIRECT
+  - DOMAIN-SUFFIX,gitee.com,DIRECT
+  - DOMAIN-SUFFIX,oschina.net,DIRECT
+  # 厂商 / 系统服务
+  - DOMAIN-SUFFIX,huawei.com,DIRECT
+  - DOMAIN-SUFFIX,xiaomi.com,DIRECT
+  - DOMAIN-SUFFIX,mi.com,DIRECT
+  - DOMAIN-SUFFIX,miui.com,DIRECT
+  - DOMAIN-SUFFIX,oppo.com,DIRECT
+  - DOMAIN-SUFFIX,heytap.com,DIRECT
+  - DOMAIN-SUFFIX,coloros.com,DIRECT
+  - DOMAIN-SUFFIX,vivo.com.cn,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
