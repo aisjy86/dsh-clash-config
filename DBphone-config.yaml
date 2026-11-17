@@ -128,6 +128,15 @@ rules:
   - DOMAIN-SUFFIX,twimg.com,MANUAL
   - DOMAIN-SUFFIX,twitter.com,MANUAL
   - DOMAIN-SUFFIX,grok.com,MANUAL
+
+  # Anthropic / Claude
+  # 2026-11-18：机房节点池访问 claude 曾被判 app-unavailable-in-region，
+  # 必须走 Anthropic 认可地区的出口；MANUAL 默认是实测可用的美国节点。
+  - DOMAIN-SUFFIX,claude.ai,MANUAL
+  - DOMAIN-SUFFIX,claude.com,MANUAL
+  - DOMAIN-SUFFIX,anthropic.com,MANUAL
+  - DOMAIN-SUFFIX,claudeusercontent.com,MANUAL
+
   # ===== Google Play 专项（国行设备）=====
   # 国行 Play 用 services.googleapis.cn（不是 .com），会被后面的
   # DOMAIN-SUFFIX,cn,DIRECT 抓住直连，导致商店服务连不上 →"一直转圈/等待中"。
