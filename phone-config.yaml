@@ -59,6 +59,15 @@ proxies:
     mtu: 1280
     reserved: [216,32,238]
 
+  # Anthropic 专用：机房节点池会被判 app-unavailable-in-region，
+  # 这个免费公网出口 (US 216.152.152.44) 实测 claude.ai/anthropic.com/
+  # console.anthropic.com/claude.ai/api 全部 200，api 返回 401 而非 403。
+  - name: "ANTHROPIC-HTTP-US"
+    type: http
+    server: 216.152.152.44
+    port: 80
+    udp: false
+
 proxy-groups:
   # X 专用出口：默认 WARP，可手动切回普通节点
   - name: X视频
@@ -121,7 +130,19 @@ proxy-groups:
     tolerance: 200
     lazy: true
 
+  - name: Anthropic
+    type: select
+    proxies:
+      - "ANTHROPIC-HTTP-US"
+      - 节点选择
+
 rules:
+  # ===== Anthropic 专用线路 =====
+  - DOMAIN-SUFFIX,claude.ai,Anthropic
+  - DOMAIN-SUFFIX,claude.com,Anthropic
+  - DOMAIN-SUFFIX,anthropic.com,Anthropic
+  - DOMAIN-SUFFIX,claudeusercontent.com,Anthropic
+
   # ===== X / Twitter 走 WARP =====
   - DOMAIN-SUFFIX,twimg.com,X视频
   - DOMAIN-SUFFIX,x.com,X视频
