@@ -1,5 +1,5 @@
 # mihomo / clash 手机配置（由桌面版导出）
-# 节点：15 个（按实测吞吐排序，带宽优先）
+# 节点：9 个（按实测吞吐排序，带宽优先）
 # 适用：Clash Meta for Android / FlClash / Karing / Streisand / sing-box(需转换)
 mixed-port: 7890
 allow-lan: false
@@ -36,21 +36,15 @@ dns:
       - 240.0.0.0/4
 
 proxies:
-  - { name: "ss-832 @i10VPN", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-840 @Shh_Proxy-New", type: ss, server: 202.50.253.54, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-838 211608 | Telegram = t.me/SOSkeyNET", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-831 @Shh_Proxy-New", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-845 @i10VPN", type: ss, server: 202.50.253.63, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-844 @confing_v2rayy", type: ss, server: 202.50.253.63, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-835 YFZ 207 @Outline_Vpn", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-813 @confing_v2rayy", type: ss, server: 202.50.253.18, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-841 @confing_v2rayy", type: ss, server: 202.50.253.54, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-859 @i10VPN", type: ss, server: 202.50.253.81, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-1185 IT-202.50.253.18-0212", type: ss, server: 202.50.253.18, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-851 @appsooner", type: ss, server: 202.50.253.72, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-816 @tik7net_vpn", type: ss, server: 202.50.253.18, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-815 @EXPRESSVPN_420", type: ss, server: 202.50.253.18, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
-  - { name: "ss-814 @vpnbaz", type: ss, server: 202.50.253.18, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "vmess-626 | USA", type: vmess, server: 192.74.236.148, port: 30004, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, network: ws, skip-cert-verify: true, ws-opts: { path: /path/1733477783705 } }
+  - { name: "ss-49 | ITA #4", type: ss, server: 202.50.253.99, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-0 |@ripaojiedian", type: ss, server: 202.50.253.63, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-51 IT_4|1.1MB/s", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "vmess-620 US_3|1.9MB/s", type: vmess, server: 104.225.148.201, port: 9983, uuid: 09e2eb90-14c7-4b79-bac7-f7b6f3f78054, alterId: 0, cipher: auto, tls: false, network: http, skip-cert-verify: true }
+  - { name: "ss-47 | ITA #8", type: ss, server: 202.50.253.81, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-50 | ITA #6", type: ss, server: 202.50.253.90, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-1 2|@ripaojiedian", type: ss, server: 202.50.253.27, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
+  - { name: "ss-45 [www.v2nodes.com] ss-IT-1619...", type: ss, server: 202.50.253.72, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true }
   # Cloudflare WARP（免费）：出口是 Cloudflare 段 104.28.x，
   # 与节点池的 GTHost 段完全不同，专门用来承载 X 相关流量试视频风控。
   # 注意：WARP 在墙内到 Google/YouTube 不通，只能给 X 用，不要全局套。
@@ -79,22 +73,16 @@ proxy-groups:
   - name: 节点选择
     type: select
     proxies:
-      - "ss-832 @i10VPN"
+      - "vmess-626 | USA"
       - 自动选择
-      - "ss-840 @Shh_Proxy-New"
-      - "ss-838 211608 | Telegram = t.me/SOSkeyNET"
-      - "ss-831 @Shh_Proxy-New"
-      - "ss-845 @i10VPN"
-      - "ss-844 @confing_v2rayy"
-      - "ss-835 YFZ 207 @Outline_Vpn"
-      - "ss-813 @confing_v2rayy"
-      - "ss-841 @confing_v2rayy"
-      - "ss-859 @i10VPN"
-      - "ss-1185 IT-202.50.253.18-0212"
-      - "ss-851 @appsooner"
-      - "ss-816 @tik7net_vpn"
-      - "ss-815 @EXPRESSVPN_420"
-      - "ss-814 @vpnbaz"
+      - "ss-49 | ITA #4"
+      - "ss-0 |@ripaojiedian"
+      - "ss-51 IT_4|1.1MB/s"
+      - "vmess-620 US_3|1.9MB/s"
+      - "ss-47 | ITA #8"
+      - "ss-50 | ITA #6"
+      - "ss-1 2|@ripaojiedian"
+      - "ss-45 [www.v2nodes.com] ss-IT-1619..."
 
   # 下载专用：负载均衡组。Play 下载是多分片并发，单节点容易被限速或直接断，
   # 分散到多个节点能显著提高成功率与总吞吐。
@@ -102,21 +90,15 @@ proxy-groups:
     type: load-balance
     strategy: round-robin
     proxies:
-      - "ss-832 @i10VPN"
-      - "ss-840 @Shh_Proxy-New"
-      - "ss-838 211608 | Telegram = t.me/SOSkeyNET"
-      - "ss-831 @Shh_Proxy-New"
-      - "ss-845 @i10VPN"
-      - "ss-844 @confing_v2rayy"
-      - "ss-835 YFZ 207 @Outline_Vpn"
-      - "ss-813 @confing_v2rayy"
-      - "ss-841 @confing_v2rayy"
-      - "ss-859 @i10VPN"
-      - "ss-1185 IT-202.50.253.18-0212"
-      - "ss-851 @appsooner"
-      - "ss-816 @tik7net_vpn"
-      - "ss-815 @EXPRESSVPN_420"
-      - "ss-814 @vpnbaz"
+      - "vmess-626 | USA"
+      - "ss-49 | ITA #4"
+      - "ss-0 |@ripaojiedian"
+      - "ss-51 IT_4|1.1MB/s"
+      - "vmess-620 US_3|1.9MB/s"
+      - "ss-47 | ITA #8"
+      - "ss-50 | ITA #6"
+      - "ss-1 2|@ripaojiedian"
+      - "ss-45 [www.v2nodes.com] ss-IT-1619..."
     url: "https://www.gstatic.com/generate_204"
     interval: 600
     tolerance: 100
@@ -125,21 +107,15 @@ proxy-groups:
   - name: 自动选择
     type: url-test
     proxies:
-      - "ss-832 @i10VPN"
-      - "ss-840 @Shh_Proxy-New"
-      - "ss-838 211608 | Telegram = t.me/SOSkeyNET"
-      - "ss-831 @Shh_Proxy-New"
-      - "ss-845 @i10VPN"
-      - "ss-844 @confing_v2rayy"
-      - "ss-835 YFZ 207 @Outline_Vpn"
-      - "ss-813 @confing_v2rayy"
-      - "ss-841 @confing_v2rayy"
-      - "ss-859 @i10VPN"
-      - "ss-1185 IT-202.50.253.18-0212"
-      - "ss-851 @appsooner"
-      - "ss-816 @tik7net_vpn"
-      - "ss-815 @EXPRESSVPN_420"
-      - "ss-814 @vpnbaz"
+      - "vmess-626 | USA"
+      - "ss-49 | ITA #4"
+      - "ss-0 |@ripaojiedian"
+      - "ss-51 IT_4|1.1MB/s"
+      - "vmess-620 US_3|1.9MB/s"
+      - "ss-47 | ITA #8"
+      - "ss-50 | ITA #6"
+      - "ss-1 2|@ripaojiedian"
+      - "ss-45 [www.v2nodes.com] ss-IT-1619..."
     url: "https://www.gstatic.com/generate_204"
     interval: 1800
     tolerance: 200
