@@ -48,29 +48,41 @@ tcp-concurrent: true
 unified-delay: true
 # 关闭 sniffer：它会解析并改写 TLS 目标，Play 的 Cronet 下载器对此敏感。
 
+# ===== DNS（净化版 2026-11-18）=====
+# 净化点：
+#   1. 删掉 fallback 的 tls://8.8.8.8:853 / tls://1.1.1.1:853 —— 境外 DoT 直连在墙内
+#      一律超时，等于每次解析多阻塞一次（手机网络下最明显）
+#   2. 显式补 default-nameserver / proxy-server-nameserver：节点域名只用国内 DNS 引导，
+#      避免「先被投毒、再连错 IP」
+#   3. 上游收敛到 223.5.5.5 / 119.29.29.29，境外域名交给 fake-ip 由节点远端解析
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  use-hosts: true
   fake-ip-filter:
     - "*.lan"
     - "*.local"
     - "localhost.ptlogin2.qq.com"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
     # 注意：不要给 Google 域名加 fake-ip-filter。
     # 实测这么做会让 gvt1.com 拿到被污染的国内 IP（202.101.48.97），
     # Cronet 连上去 TLS 必定被断。保持假 IP，让节点做远端解析才是对的。
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
   nameserver:
     - 223.5.5.5
     - 119.29.29.29
-  fallback:
-    - tls://8.8.8.8:853
-    - tls://1.1.1.1:853
-  fallback-filter:
-    geoip: false
-    ipcidr:
-      - 240.0.0.0/4
-
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver-policy:
+    "+.cn":
+      - 223.5.5.5
+      - 119.29.29.29
 
 proxies:
   - { name: "vmess-3201 | USA", type: vmess, server: 192.74.236.148, port: 30004, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, network: ws, skip-cert-verify: true, ws-opts: { path: /path/1733477783705 } }
